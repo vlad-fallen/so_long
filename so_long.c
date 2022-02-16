@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:43:23 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/12 19:45:54 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/15 17:38:30 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,18 @@
 
 int key_hook(int keycode, t_prog_var *prog)
 {
-	if (keycode == 53)
+	int i;
+
+	i = 0;
+	if (keycode == 2)
+		go_right(prog);
+	else if (keycode == 0)
+		go_left(prog);
+	else if (keycode == 13)
+		go_up(prog);
+	else if (keycode == 1)
+		go_down(prog);
+	else if (keycode == 53)
 		end_program(prog);
 	return (0);
 }

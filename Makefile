@@ -6,7 +6,7 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/04 15:40:50 by mbutter           #+#    #+#              #
-#    Updated: 2022/02/12 16:55:14 by mbutter          ###   ########.fr        #
+#    Updated: 2022/02/15 19:00:02 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,8 @@ SRCS		=	so_long.c \
 				check_map.c \
 				render_map.c \
 				open_image.c \
+				movement.c \
+				event.c \
 				utils.c 
 
 #TEST

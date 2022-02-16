@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:43:45 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/12 18:48:34 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:37:03 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 # include <fcntl.h>
 # include <mlx.h>
 # include <stdio.h>
+
+typedef enum e_bool
+{
+	e_false,
+	e_true
+} t_bool;
 
 typedef struct s_vector
 {
@@ -35,20 +41,22 @@ typedef struct s_map
 
 typedef struct s_player
 {
-	void		*img_player;
-	t_vector	player_position;
+	void		*img_player[2];
+	t_vector	position;
+	t_bool		left_or_right;
+	int			count_move;
 }	t_player;
 
 typedef struct s_collectible
 {
 	void		*img_collect;
-	t_vector	*collect_position;
+	int			count_collect;
 }	t_collectible;
 
 typedef struct s_escape
 {
-	void		*img_escape;
-	t_vector	*escape_position;
+	void		*img_escape[2];
+	t_vector	position;
 }	t_escape;
 
 typedef struct s_space
@@ -76,6 +84,7 @@ void	err_arg(int n);
 void clean_map(char **map);
 int get_height_of_map(char **map);
 int end_program(t_prog_var *prog);
+void print_move(t_prog_var *prog);
 
 /* check_map.c */
 void check_valid_map(t_map *map);
@@ -88,6 +97,7 @@ void game_init(t_prog_var *prog, int argc, char **argv);
 
 /* render */
 void render_map(t_prog_var *prog);
+void render_image(void *image, int x, int y, t_prog_var *prog);
 
 /* open_image.c */
 void open_image_wall(t_prog_var *prog);
@@ -95,5 +105,16 @@ void open_image_empty_space(t_prog_var *prog);
 void open_image_player(t_prog_var *prog);
 void open_image_collectibles(t_prog_var *prog);
 void open_image_escape(t_prog_var *prog);
+
+/* movement */
+void go_right(t_prog_var *prog);
+void go_left(t_prog_var *prog);
+void go_up(t_prog_var *prog);
+void go_down(t_prog_var *prog);
+
+/* event */
+void collect_item(t_prog_var *prog, int x, int y);
+void go_to_exit(t_prog_var *prog, int x, int y);
+void render_door(t_prog_var *p);
 
 #endif

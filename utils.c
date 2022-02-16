@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:57:58 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/12 18:54:52 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/15 17:55:53 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,13 @@ int end_program(t_prog_var *prog)
 	mlx_destroy_window(prog->mlx, prog->window);
 	exit(0);
 	return (0);
+}
+
+void print_move(t_prog_var *prog)
+{
+	prog->player.count_move++;
+	ft_putstr_fd("Move: ", 1);
+	ft_putnbr_fd(prog->player.count_move, 1);
+	ft_putstr_fd("\n", 1);
+
 }

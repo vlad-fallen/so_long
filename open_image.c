@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/12 15:08:47 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/12 15:40:03 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/15 18:04:43 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,8 @@ void open_image_player(t_prog_var *prog)
 	int		img_width;
 	int		img_height;
 
-	prog->player.img_player = mlx_xpm_file_to_image(prog->mlx, "./game/player/Idle_001.xpm", &img_width, &img_height);
+	prog->player.img_player[0] = mlx_xpm_file_to_image(prog->mlx, "./game/player/Idle_right_001.xpm", &img_width, &img_height);
+	prog->player.img_player[1] = mlx_xpm_file_to_image(prog->mlx, "./game/player/Idle_left_001.xpm", &img_width, &img_height);
 }
 
 void open_image_collectibles(t_prog_var *prog)
@@ -57,5 +58,6 @@ void open_image_escape(t_prog_var *prog)
 	int		img_width;
 	int		img_height;
 
-	prog->exit.img_escape = mlx_xpm_file_to_image(prog->mlx, "./game/escape/door_001.xpm", &img_width, &img_height);
+	prog->exit.img_escape[0] = mlx_xpm_file_to_image(prog->mlx, "./game/escape/door_001.xpm", &img_width, &img_height);
+	prog->exit.img_escape[1] = mlx_xpm_file_to_image(prog->mlx, "./game/escape/door_002.xpm", &img_width, &img_height);
 }

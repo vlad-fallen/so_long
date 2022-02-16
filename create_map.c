@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:13 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/12 14:09:27 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/15 16:13:22 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ void init_map(t_prog_var *prog, char **argv)
 	check_valid_map(&(prog->map));
 	prog->map.map_size.x = ft_strlen(prog->map.map[0]);
 	prog->map.map_size.y = get_height_of_map(prog->map.map);
-	prog->window_size.x = prog->map.map_size.x * 128;
-	prog->window_size.y = prog->map.map_size.y * 128;
+	prog->window_size.x = prog->map.map_size.x * 64;
+	prog->window_size.y = prog->map.map_size.y * 64;
 }
