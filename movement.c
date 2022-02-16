@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 12:54:05 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/16 17:38:01 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:54:59 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void go_right(t_prog_var *p)
 		p->player.position.x += 32;
 	if (p->map.map[pixel_map.y / 64][(p->player.position.x + 32) / 64] == 'C')
 		collect_item(p, pixel_map.x + 64, pixel_map.y);
-	else if (p->map.map[(p->player.position.y + 32) / 64][(p->player.position.x + 32) / 64] == 'C')
+	if (p->map.map[(p->player.position.y + 32) / 64][(p->player.position.x + 32) / 64] == 'C')
 		collect_item(p, pixel_map.x + 64, pixel_map.y + 64);
 	if (p->map.map[p->player.position.y / 64][p->player.position.x / 64] == 'E')
 		go_to_exit(p, p->player.position.x, p->player.position.y);
@@ -65,7 +65,7 @@ void go_left(t_prog_var *p)
 		p->player.position.x -= 32;
 	if (p->map.map[pixel_map.y / 64][p->player.position.x / 64] == 'C')
 		collect_item(p, pixel_map.x - 64, pixel_map.y);
-	else if (p->map.map[(p->player.position.y + 32) / 64][p->player.position.x / 64] == 'C')
+	if (p->map.map[(p->player.position.y + 32) / 64][p->player.position.x / 64] == 'C')
 		collect_item(p, pixel_map.x - 64, pixel_map.y + 64);
 	if (p->map.map[p->player.position.y / 64][p->player.position.x / 64] == 'E')
 		go_to_exit(p, p->player.position.x, p->player.position.y);
@@ -86,7 +86,7 @@ void go_up(t_prog_var *p)
 		p->player.position.y -= 32;
 	if (p->map.map[p->player.position.y / 64][p->player.position.x / 64] == 'C')
 		collect_item(p, pixel_map.x, pixel_map.y - 64);
-	else if (p->map.map[p->player.position.y / 64][(p->player.position.x + 32) / 64] == 'C')
+	if (p->map.map[p->player.position.y / 64][(p->player.position.x + 32) / 64] == 'C')
 		collect_item(p, pixel_map.x + 64, pixel_map.y - 64);
 	if (p->map.map[p->player.position.y / 64][p->player.position.x / 64] == 'E')
 		go_to_exit(p, p->player.position.x, p->player.position.y);
@@ -110,7 +110,7 @@ void go_down(t_prog_var *p)
 		p->player.position.y += 32;
 	if (p->map.map[(p->player.position.y + 32) / 64][p->player.position.x / 64] == 'C')
 		collect_item(p, pixel_map.x, pixel_map.y + 64);
-	else if (p->map.map[(p->player.position.y + 32) / 64][(p->player.position.x + 32) / 64] == 'C')
+	if (p->map.map[(p->player.position.y + 32) / 64][(p->player.position.x + 32) / 64] == 'C')
 		collect_item(p, pixel_map.x + 64, pixel_map.y + 64);
 	if (p->map.map[p->player.position.y / 64][p->player.position.x / 64] == 'E')
 		go_to_exit(p, p->player.position.x, p->player.position.y);

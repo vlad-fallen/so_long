@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/15 18:20:39 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/16 17:36:56 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/16 17:57:14 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void go_to_exit(t_prog_var *prog, int x, int y)
 	}
 	else
 		render_image(prog->exit.img_escape[1], prog->exit.position.x, prog->exit.position.y, prog);
-	if ((x / 64) == (prog->exit.position.x / 64) && (y / 64) == (prog->exit.position.y / 64))
+	if (x == (prog->exit.position.x - 9) && (y - 6) == (prog->exit.position.y - 8))
 		end_program(prog);
 }
 
