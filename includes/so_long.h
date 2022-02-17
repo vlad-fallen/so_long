@@ -6,7 +6,7 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:43:45 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/17 12:02:00 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/17 12:06:41 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "libft.h"
 # include <fcntl.h>
 # include <mlx.h>
-# include <stdio.h>
 
 typedef enum e_bool
 {
