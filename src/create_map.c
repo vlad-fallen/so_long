@@ -6,15 +6,15 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/09 13:55:13 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/15 16:13:22 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/17 10:53:29 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void check_file_name(char *file_name)
+static void	check_file_name(char *file_name)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (file_name[i])
@@ -30,11 +30,11 @@ static void check_file_name(char *file_name)
 	exit(EXIT_FAILURE);
 }
 
-static void open_map(char *file_name, t_map *map)
+static void	open_map(char *file_name, t_map *map)
 {
-	int fd;
-	char *line;
-	char *all_line;
+	int		fd;
+	char	*line;
+	char	*all_line;
 
 	fd = open(file_name, O_RDONLY);
 	if (fd < 0)
@@ -56,7 +56,7 @@ static void open_map(char *file_name, t_map *map)
 	map->map = ft_split(all_line, '\n');
 }
 
-void init_map(t_prog_var *prog, char **argv)
+void	init_map(t_prog_var *prog, char **argv)
 {
 	check_file_name(argv[1]);
 	open_map(argv[1], &(prog->map));

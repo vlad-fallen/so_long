@@ -6,19 +6,17 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 14:40:48 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/11 12:45:39 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/17 10:51:25 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void check_rectangularity(char **map)
+static void	check_rectangularity(char **map)
 {
-	int i;
-	int j;
+	int	i;
 
 	i = 1;
-	j = 0;
 	while (map[i])
 	{
 		if (ft_strlen(map[i]) != ft_strlen(map[i - 1]))
@@ -30,38 +28,38 @@ static void check_rectangularity(char **map)
 	}
 }
 
-static void check_surrounded_by_wall(char **map)
+static void	check_surrounded_by_wall(char **map)
 {
-	int x;
-	int y;
-	int length_of_map;
-	int height_of_map;
-	
+	int	x;
+	int	y;
+	int	length_of_map;
+	int	height_of_map;
+
 	x = 0;
 	y = 0;
 	length_of_map = ft_strlen(map[x]);
 	height_of_map = get_height_of_map(map);
 	while (x < length_of_map)
 	{
-		if (map[0][x] != '1' || map[height_of_map - 1][x] != '1')	
+		if (map[0][x] != '1' || map[height_of_map - 1][x] != '1')
 			err_arg(1);
 		x++;
 	}
 	while (y < height_of_map)
 	{
-		if (map[y][0] != '1' || map[y][length_of_map - 1] != '1')	
+		if (map[y][0] != '1' || map[y][length_of_map - 1] != '1')
 			err_arg(1);
 		y++;
 	}	
 }
 
-static void check_characters(t_map *m)
+static void	check_characters(t_map *m)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	y = 0;
-	while(m->map[y])
+	while (m->map[y])
 	{
 		x = 0;
 		while (m->map[y][x])
@@ -76,16 +74,16 @@ static void check_characters(t_map *m)
 	}
 }
 
-static void count_pce(t_map *m)
+static void	count_pce(t_map *m)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	m->count_player = 0;
 	m->count_collect = 0;
 	m->count_escape = 0;
 	y = -1;
-	while(m->map[++y])
+	while (m->map[++y])
 	{
 		x = -1;
 		while (m->map[y][++x])
@@ -104,7 +102,7 @@ static void count_pce(t_map *m)
 		err_arg(1);
 }
 
-void check_valid_map(t_map *map)
+void	check_valid_map(t_map *map)
 {
 	check_rectangularity(map->map);
 	check_surrounded_by_wall(map->map);

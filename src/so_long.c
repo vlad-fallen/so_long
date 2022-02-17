@@ -6,17 +6,14 @@
 /*   By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/08 11:43:23 by mbutter           #+#    #+#             */
-/*   Updated: 2022/02/15 17:38:30 by mbutter          ###   ########.fr       */
+/*   Updated: 2022/02/17 11:33:02 by mbutter          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int key_hook(int keycode, t_prog_var *prog)
+int	key_hook(int keycode, t_prog_var *prog)
 {
-	int i;
-
-	i = 0;
 	if (keycode == 2)
 		go_right(prog);
 	else if (keycode == 0)
@@ -30,9 +27,9 @@ int key_hook(int keycode, t_prog_var *prog)
 	return (0);
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-	t_prog_var prog;
+	t_prog_var	prog;
 
 	game_init(&prog, argc, argv);
 	mlx_hook(prog.window, 2, 0, key_hook, &prog);

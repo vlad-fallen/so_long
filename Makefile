@@ -6,24 +6,21 @@
 #    By: mbutter <mbutter@student.21-school.ru>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/12/04 15:40:50 by mbutter           #+#    #+#              #
-#    Updated: 2022/02/15 19:00:02 by mbutter          ###   ########.fr        #
+#    Updated: 2022/02/17 12:01:34 by mbutter          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	so_long
 
-SRCS		=	so_long.c \
-				create_game.c \
-				create_map.c \
-				check_map.c \
-				render_map.c \
-				open_image.c \
-				movement.c \
-				event.c \
-				utils.c 
-
-#TEST
-#SRCS		=	main.c
+SRCS		=	src/so_long.c \
+				src/create_game.c \
+				src/create_map.c \
+				src/check_map.c \
+				src/render_map.c \
+				src/open_image.c \
+				src/movement.c \
+				src/event.c \
+				src/utils.c 
 
 OBJS		=	$(patsubst %.c,%.o,$(SRCS)) 
 
@@ -37,7 +34,7 @@ CC			=	gcc
 
 RM			=	rm -f
 
-CFLAGS		=	-Wall -Wextra -Werror -g
+CFLAGS		=	-Wall -Wextra -Werror -g -I ./includes -I ./libft
 
 MLXFLAGS	=	-L ./mlx/ -lmlx -framework OpenGL -framework AppKit
 
